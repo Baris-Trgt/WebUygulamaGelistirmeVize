@@ -1,0 +1,71 @@
+﻿@model WebUygulamaGelistirmeVize.Models.Personel
+
+@{
+    ViewData["Title"] = "Sil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Yukarıda sayfanin hangi model tipinde calisacagini belirtir-->
+<!-- Personel classı içerisinde her bir eleman sayilabilir duruma gelir -->
+
+<h4>Personeli Sil</h4> <!--Baslik Kismi-->
+
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Soyad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Soyad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Dogum_Tarih)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Dogum_Tarih)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Kimlik_No)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Kimlik_No)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Departman_Tipi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Departman_Tipi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Giris_Yil)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Giris_Yil)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sozlesme_Bitis_Tarih)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sozlesme_Bitis_Tarih)
+        </dd>
+    </dl>
+
+    <form asp-action="Sil"> <!--method olarak Sil kullanilacak -->
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Listele">Listeye Geri Dön</a> <!--method olarak Listele kullanilacak -->
+    </form>
+</div>

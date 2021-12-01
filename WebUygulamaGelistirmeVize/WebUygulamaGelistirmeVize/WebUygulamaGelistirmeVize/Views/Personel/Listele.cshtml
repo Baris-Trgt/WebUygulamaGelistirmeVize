@@ -1,0 +1,85 @@
+﻿@model IEnumerable<WebUygulamaGelistirmeVize.Models.Personel> 
+
+@{
+    ViewData["Title"] = "Personel_Listele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Yukarıda sayfanin hangi model tipinde calisacagini belirtir-->
+<!-- Personel classı içerisinde her bir eleman sayilabilir duruma gelir -->
+
+<h1>Personellerimiz</h1> <!--Baslik kismi-->
+
+<p>
+    <a asp-action="Ekle">Yeni Personel Ekle</a> <!--method olarak Ekle kullanilacak-->
+</p>
+<table class="table text-white bg-dark"> <!--tablonun arka plan ve yazi rengini belirledim-->
+    <!--th iclerinde olan olaylar == Veri tipinin icerisinde ayni veri tipine ait olan ozellikleri dondurur -->
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dogum_Tarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kimlik_No)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departman_Tipi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Giris_Yil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sozlesme_Bitis_Tarih)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <!--Sayfada dondurulen listenin kendisi yani PersonelVeri'nin icerisinde Personeller tipi kismidir . Model(Liste) icerisnde item ozelliklerini gosterir-->
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dogum_Tarih)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kimlik_No)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departman_Tipi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giris_Yil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sozlesme_Bitis_Tarih)
+            </td>
+            <td>
+                <!-- buton olusturdum , renkler verdim , ilgli Actionlinklerini bagladim -->
+                <!--text isimlerini verdim sonra actionName isimlerini verdim.actionName(PersonelController icerisinde) -->
+                <button type="button" class="btn btn-success" style="width:64px; padding:1px"> @Html.ActionLink("Güncelle", "Guncelle", new { id = item.Id }, new { style = "color: Black;" })</button>
+                <button type="button" class="btn btn-warning" style="width:62px; padding:1px"> @Html.ActionLink("Detaylar", "Detaylar", new { id = item.Id }, new { style = "color: Black;" })</button>
+                <button type="button" class="btn btn-danger" style="width:37px; padding:1px"> @Html.ActionLink("Sil", "Sil", new { id = item.Id }, new { style = "color: Black;" })</button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

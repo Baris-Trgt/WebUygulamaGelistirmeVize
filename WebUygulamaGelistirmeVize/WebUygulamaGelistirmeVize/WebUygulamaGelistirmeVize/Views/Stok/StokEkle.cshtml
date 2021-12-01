@@ -1,0 +1,53 @@
+﻿@model WebUygulamaGelistirmeVize.Models.Stok
+
+@{
+    ViewData["Title"] = "StokEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Yukarıda sayfanin hangi model tipinde calisacagini belirtir-->
+<!-- Stok classı içerisinde her bir eleman sayilabilir duruma gelir -->
+
+<h4>Stoğa Ürün Ekleme Bölümü</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="StokEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun_Adi" class="control-label"></label>
+                <input asp-for="Urun_Adi" class="form-control" />
+                <span asp-validation-for="Urun_Adi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun_Fiyat" class="control-label"></label>
+                <input asp-for="Urun_Fiyat" class="form-control" />
+                <span asp-validation-for="Urun_Fiyat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Marka" class="control-label"></label>
+                <input asp-for="Marka" class="form-control" />
+                <span asp-validation-for="Marka" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stok_Durumu" class="control-label"></label>
+                <input asp-for="Stok_Durumu" class="form-control" />
+                <span asp-validation-for="Stok_Durumu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Durum">Stok Listesine Geri Dön</a> <!--method olarak Durum kullanilacak -->
+</div>
+

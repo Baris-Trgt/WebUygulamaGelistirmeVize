@@ -1,0 +1,68 @@
+﻿@model WebUygulamaGelistirmeVize.Models.Personel
+
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Yukarıda sayfanin hangi model tipinde calisacagini belirtir-->
+<!-- Personel classı içerisinde her bir eleman sayilabilir duruma gelir -->
+
+<h4>Personel Ekle</h4> <!--Baslik Kismi-->
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Ekle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ad" class="control-label"></label>
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soyad" class="control-label"></label>
+                <input asp-for="Soyad" class="form-control" />
+                <span asp-validation-for="Soyad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dogum_Tarih" class="control-label"></label>
+                <input asp-for="Dogum_Tarih" class="form-control" />
+                <span asp-validation-for="Dogum_Tarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kimlik_No" class="control-label"></label>
+                <input asp-for="Kimlik_No" class="form-control" />
+                <span asp-validation-for="Kimlik_No" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Departman_Tipi" class="control-label"></label>
+                <input asp-for="Departman_Tipi" class="form-control" />
+                <span asp-validation-for="Departman_Tipi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Giris_Yil" class="control-label"></label>
+                <input asp-for="Giris_Yil" class="form-control" />
+                <span asp-validation-for="Giris_Yil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sozlesme_Bitis_Tarih" class="control-label"></label>
+                <input asp-for="Sozlesme_Bitis_Tarih" class="form-control" />
+                <span asp-validation-for="Sozlesme_Bitis_Tarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Listele">Listeye Geri Dön</a> <!--method olarak Listele kullanilacak -->
+</div>
+

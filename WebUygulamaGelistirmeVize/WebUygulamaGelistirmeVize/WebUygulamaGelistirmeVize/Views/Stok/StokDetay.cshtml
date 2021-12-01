@@ -1,0 +1,51 @@
+﻿@model WebUygulamaGelistirmeVize.Models.Stok
+
+@{
+    ViewData["Title"] = "StokDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Yukarıda sayfanin hangi model tipinde calisacagini belirtir-->
+<!-- Stok classı içerisinde her bir eleman sayilabilir duruma gelir -->
+
+<h4>Stok Detayları</h4> <!--Baslik Kismi-->
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Urun_Adi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Urun_Adi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Urun_Fiyat)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Urun_Fiyat)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Marka)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Marka)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Stok_Durumu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Stok_Durumu)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Güncelle", "StokGuncelle", new { id = Model.Id }) |<!--text ismini verdim sonra actionName ismini verdim.actionName(StokController icerisinde) -->
+    <a asp-action="Durum">Stok Listesine Geri Dön</a> <!--method olarak Durum kullanilacak -->
+</div>

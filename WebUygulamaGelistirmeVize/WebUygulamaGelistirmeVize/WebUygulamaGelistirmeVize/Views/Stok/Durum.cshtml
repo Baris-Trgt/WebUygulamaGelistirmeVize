@@ -1,0 +1,69 @@
+﻿@model IEnumerable<WebUygulamaGelistirmeVize.Models.Stok>
+
+@{
+    ViewData["Title"] = "Durum";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Yukarıda sayfanin hangi model tipinde calisacagini belirtir-->
+<!-- Stok classı içerisinde her bir eleman sayilabilir duruma gelir -->
+
+<h2>Stok Durumu</h2> <!--Baslik kismi-->
+<br>
+
+<p>
+    <a asp-action="StokEkle">Stoğa Yeni Ürün Ekle</a>  <!--method olarak StokEkle kullanilacak-->
+</p>
+<table class="table text-white bg-dark"> <!--tablonun arka plan ve yazi rengini belirledim-->
+    <!--th iclerinde olan olaylar == Veri tipinin icerisinde ayni veri tipine ait olan ozellikleri dondurur -->
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Urun_Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Urun_Fiyat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stok_Durumu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <!--Sayfada dondurulen listenin kendisi yani StokVeri'nin icerisinde Stoklar tipi kismidir . Model(Liste) icerisnde item ozelliklerini gosterir-->
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Urun_Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Urun_Fiyat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marka)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stok_Durumu)
+                </td>
+                <td>
+                    <!-- buton olusturdum , renkler verdim , ilgli Actionlinklerini bagladim -->
+                    <!--text isimlerini verdim sonra actionName isimlerini verdim.actionName(StokController icerisinde) -->
+                    <button type="button" class="btn btn-success">@Html.ActionLink("Güncelle", "StokGuncelle", new { id = item.Id }, new { style = "color: Black;" }) </button> |
+                    <button type="button" class="btn btn-warning">@Html.ActionLink("Detay", "StokDetay", new { id = item.Id }, new { style = "color: Black;" }) </button>|
+                    <button type="button" class="btn btn-danger">@Html.ActionLink("Sil", "StokSil", new { id = item.Id }, new { style = "color: Black;" })</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
